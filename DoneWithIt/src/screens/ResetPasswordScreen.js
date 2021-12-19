@@ -6,7 +6,9 @@ import Header from '../components/Header'
 import TextInput from '../components/TextInput'
 import Button from '../components/Button'
 import { emailValidator } from '../helpers/emailValidator'
-
+import { View, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text } from 'react-native-paper'
+import { theme } from '../core/theme'
 export default function ResetPasswordScreen({ navigation }) {
   const [email, setEmail] = useState({ value: '', error: '' })
 
@@ -21,7 +23,7 @@ export default function ResetPasswordScreen({ navigation }) {
 
   return (
     <Background>
-      <BackButton goBack={navigation.goBack} />
+      {/* <BackButton goBack={navigation.goBack} /> */}
       <Logo />
       <Header>Restore Password</Header>
       <TextInput
@@ -44,6 +46,23 @@ export default function ResetPasswordScreen({ navigation }) {
       >
         Send Instructions
       </Button>
+
+      <View style={styles.row}>
+        <Text>Don’t have an account? </Text>
+        <TouchableOpacity onPress={() => navigation.replace('LoginScreen')}>
+          <Text style={styles.link}>Back to login</Text>
+        </TouchableOpacity>
+      </View>
     </Background>
   )
 }
+const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+    marginTop: 4,
+  },
+  link: {
+    fontWeight: 'bold',
+    color: theme.colors.primary,
+  },
+})

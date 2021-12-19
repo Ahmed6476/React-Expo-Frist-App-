@@ -1,6 +1,7 @@
 import React from 'react'
 import Background from '../components/Background'
 import Logo from '../components/Logo'
+import { StyleSheet } from 'react-native'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
@@ -9,9 +10,9 @@ export default function StartScreen({ navigation }) {
   return (
     <Background>
       <Logo />
-      <Header>Login Template</Header>
-      <Paragraph>
-        The easiest way to start with your amazing application.
+      <Header>Khana Mil Kar Kahey Gay</Header>
+      <Paragraph style={styles.baseText}>
+        Welcome {'\n'} خوش آمدید
       </Paragraph>
       <Button
         mode="contained"
@@ -28,3 +29,10 @@ export default function StartScreen({ navigation }) {
     </Background>
   )
 }
+const styles = StyleSheet.create({
+  baseText: {
+    fontWeight: 'bold',
+    fontSize:'15px'
+  },
+  
+})
